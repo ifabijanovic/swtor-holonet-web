@@ -1,3 +1,4 @@
+var config = require('cloud/config/config.js');
 var httpsRedirect = require('parse-express-https-redirect');
 var cookieSession = require('parse-express-cookie-session');
 
@@ -5,7 +6,7 @@ var mod = {};
 
 mod.init = function(app, express) {
 	app.use(httpsRedirect());
-	app.use(express.cookieParser('test'));
+	app.use(express.cookieParser(config.cookieSecret));
 	app.use(cookieSession({ cookie: { maxAge: 3600000 }}));
 };
 
