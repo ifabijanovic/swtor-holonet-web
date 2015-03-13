@@ -1,30 +1,32 @@
-
-// These two lines are required to initialize Express in Cloud Code.
+// Express
 var express = require('express');
 var app = express();
 
-// Global app configuration section
+// Modules
+var authentication = require('cloud/authentication/module.js');
+
+// Configuration and module initialisation
 app.set('views', 'cloud/views');  // Specify the folder to find templates
 app.set('view engine', 'ejs');    // Set the template engine
 app.use(express.bodyParser());    // Middleware for reading request body
+authentication.init(app, express);
 
-// This is an example of hooking up a request handler with a specific request
-// path and HTTP verb using the Express routing API.
-app.get('/hello', function(req, res) {
-  res.render('hello', { message: 'Congrats, you just set up your app!' });
+// Routes
+app.get('/', function(req, res) {
+    var user = Parse.User.current();
+    if (user) {
+        user.fetch().then(function(fetchedUser) {
+            res.render('dashboard', { username: fetchedUser.getUsername() });
+        });
+    } else {
+        res.render('home');
+    }
 });
 
-// // Example reading from the request query string of an HTTP get request.
-// app.get('/test', function(req, res) {
-//   // GET http://example.parseapp.com/test?message=hello
-//   res.send(req.query.message);
-// });
+authentication.registerRoutes(app);
 
-// // Example reading from the request body of an HTTP post request.
-// app.post('/test', function(req, res) {
-//   // POST http://example.parseapp.com/test (with request body "message=hello")
-//   res.send(req.body.message);
-// });
+app.use(function(req, res) {
+    res.render('404');
+});
 
-// Attach the Express app to Cloud Code.
 app.listen();

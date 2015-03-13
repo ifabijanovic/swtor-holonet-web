@@ -27,3 +27,6 @@ node_modules
 # Users Environment Variables
 .lock-wscript
 global.json
+Project.sublime-project
+Project.sublime-workspace
+config.js
