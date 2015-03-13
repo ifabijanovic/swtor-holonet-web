@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<title>Push Notifications | HoloNet</title>
+  </head>
+  <body>
+	<h1>Push Notifications</h1>
+	<% if (!!locals.error) { %>
+	<div>
+		<%= locals.error %>
+	</div>
+	<% } %>
+	<% if (!!locals.info) { %>
+	<div>
+		<%= locals.info %>
+	</div>
+	<% } %>
+	<form method="post" action="/push">
+		<div>
+			<label for="message">Message</label>
+			<input type="text" id="message" name="message"></input>
+		</div>
+		<div>
+			<label for="url">URL (optional)</label>
+			<input type="text" id="url" name="url"></input>
+		</div>
+		<input type="submit" value="Send"></input>
+		<a href="/">Back</a>
+	</form>
+  </body>
+</html>
