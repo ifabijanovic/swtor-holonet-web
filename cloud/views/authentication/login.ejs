@@ -1,25 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login | HoloNet</title>
+    <link rel="stylesheet" href="styles/layout.css" charset="utf-8"/>
   </head>
   <body>
-    <h1>Login</h1>
-    <% if (!!locals.error) { %>
-    <div>
-        <%= locals.error %>
-    </div>
-    <% } %>
-    <form method="post" action="/login">
-        <div>
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username"></input>
+    <header>
+        <div class="container">
+            <div class="box vcenter">
+                <div class="logo"><a href="/"><img src="images/logo.png"/></a></div>
+                <div class="expandable"><a href="/">HoloNet</a></div>
+                <div><a href="/login">Login</a></div>
+            </div>
         </div>
-        <div>
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password"></input>
+    </header>
+    <main>
+        <div class="container">
+            <div class="form">
+                <div class="header">Log in to HoloNet</div>
+                <div class="body">
+                    <% if (!!locals.error) { %>
+                    <div class="error">
+                        <%= locals.error %>
+                    </div>
+                    <% } %>
+                    <form method="post" action="/login">
+                        <div class="field">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" name="username"></input>
+                        </div>
+                        <div class="field">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password"></input>
+                        </div>
+                        <button type="submit" class="button">Log In</button>
+                    </form>
+                </div>
+            </div>
         </div>
-        <input type="submit" value="Login"></input>
-    </form>
+    </main>
   </body>
 </html>

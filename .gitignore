@@ -30,3 +30,6 @@ global.json
 Project.sublime-project
 Project.sublime-workspace
 config.js
+layout.css
+layout.css.map
+public/styles/.sass-cache
