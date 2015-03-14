@@ -39,5 +39,15 @@ main {
 	height: 60px;
 }
 
+img.auto-wide {
+	width: 100%;
+	height: auto;
+}
+
+img.auto-high {
+	height: 100%;
+	width: auto;
+}
+
 @import 'flexbox';
 @import 'forms';

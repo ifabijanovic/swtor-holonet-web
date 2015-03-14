@@ -44,6 +44,24 @@
 				</div>
 			</div>
 		</div>
+		<div class="container">
+			<h2>Guidelines</h2>
+			<p>
+				HoloNet currently supports two kinds of Push notifications - Dulfy and regular. All notifications require a Message text and they will be displayed like this when users are currently not using the app.
+			</p>
+			<img class="auto-wide" style="max-width:747px" src="/images/push1.png"/>
+			<p>
+				If a notification is sent <b>without entering anything into the URL field</b> it is treated as a regular notification. Users currently using the app will see a dismissable Message popup.
+			</p>
+			<img class="auto-wide" style="max-width:749px" src="/images/push2.png"/>
+			<p>
+				If a notification is sent <b>with URL</b> it is treated as a Dulfy notification. Users currently using the app will see a Message popup with two options - Hide will dismiss the popup, View will switch to the Dulfy tab and load the sent URL. URL should be fully specified:
+				<p>http://www.google.com - good</p>
+				<p>www.google.com - bad</p>
+				<p>google.com - bad</p>
+			</p>
+			<img class="auto-wide" style="max-width:750px" src="/images/push3.png"/>
+		</div>
 	</main>
   </body>
 </html>
