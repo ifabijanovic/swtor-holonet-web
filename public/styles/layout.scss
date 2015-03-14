@@ -2,6 +2,7 @@
 @import 'reset';
 
 body {
+	min-width: 320px;
 	font: 100% $font-stack;
 	color: $contentText;
 	background-color: $contentBackground;
@@ -9,6 +10,7 @@ body {
 
 a {
 	text-decoration: none;
+	color: $contentTitle;
 }
 
 header {

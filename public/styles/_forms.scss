@@ -1,3 +1,24 @@
+.alert {
+	margin-bottom: 20px;
+	padding: 15px;
+	border: 1px solid transparent;
+	@include border-radius(4px);
+}
+
+.alert-error {
+	@extend .alert;
+	color: #a94442;
+	background-color: #f2dede;
+	border-color: #ebccd1;
+}
+
+.alert-success {
+	@extend .alert;
+	color: #3c763d;
+	background-color: #dff0d8;
+	border-color: #d6e9c6;
+}
+
 .form {
 	margin: 0 auto;
 	border: 1px solid $contentHighlightBackground;
@@ -18,14 +39,6 @@
 		text-align: center;
 		margin: 20px;
 
-		.error {
-			margin-bottom: 20px;
-			background-color: #fdf3f2;
-			padding: 10px 0;
-			color: #5a6b77;
-			border: 1px solid red;
-		}
-
 		.field {
 			margin-bottom: 0 15px 12px 15px;
 
@@ -35,12 +48,21 @@
 				margin: 5px 0;
 			}
 
-			input {
+			.text-input {
 				width: 100%;
-				height: 25px;
 				font-size: 15px;
 				border: 1px solid $contentHighlightBackground;
 				outline: 0;
+			}
+
+			input {
+				@extend .text-input;
+				height: 25px;
+			}
+
+			textarea {
+				@extend .text-input;
+				height: 50px;
 			}
 		}
 

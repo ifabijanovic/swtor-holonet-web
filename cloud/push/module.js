@@ -24,17 +24,17 @@ mod.handlers = {
 				data: {
 					alert: req.body.message,
 					sound: 'default',
-					badge: 'increment',
-					action: 'dulfy'
+					badge: 'increment'
 				}
 			};
 			if (req.body.url) {
+				payload.data.action = 'dulfy';
 				payload.data.url = req.body.url;
 			}
 
 			Parse.Push.send(payload, {
 				success: function() {
-					res.render('push/dulfy', { info: 'Push notification sent successfully!' });
+					res.render('push/dulfy', { success: 'Push notification sent successfully!' });
 				},
 				error: function(error) {
 					res.render('push/dulfy', { error: error.message });
