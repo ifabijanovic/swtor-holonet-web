@@ -1,0 +1,11 @@
+{
+    "applications": {
+        "HoloNet": {
+            "applicationId": "enter app id here", 
+            "masterKey": "enter master key here"
+        }, 
+        "_default": {
+            "link": "HoloNet"
+        }
+    }
+}

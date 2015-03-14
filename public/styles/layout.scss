@@ -1,0 +1,53 @@
+@import 'theme';
+@import 'reset';
+
+body {
+	min-width: 320px;
+	font: 100% $font-stack;
+	color: $contentText;
+	background-color: $contentBackground;
+}
+
+a {
+	text-decoration: none;
+	color: $contentTitle;
+}
+
+header {
+	color: $navText;
+	background-color: $navBackground;
+
+	a {
+		color: $navText;
+	}
+}
+
+main {
+	padding: 30px 15px;
+	text-align: center;
+}
+
+.container {
+	padding-left: 15px;
+	padding-right: 15px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.logo {
+	width: 60px;
+	height: 60px;
+}
+
+img.auto-wide {
+	width: 100%;
+	height: auto;
+}
+
+img.auto-high {
+	height: 100%;
+	width: auto;
+}
+
+@import 'flexbox';
+@import 'forms';

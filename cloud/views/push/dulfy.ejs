@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Push Notifications | HoloNet</title>
+	<link rel="stylesheet" href="styles/layout.css" charset="utf-8"/>
+  </head>
+  <body>
+	<header>
+		<div class="container">
+			<div class="box vcenter">
+				<div class="logo"><a href="/"><img src="images/logo.png"/></a></div>
+				<div class="expandable"><a href="/">HoloNet</a></div>
+				<div><a href="/logout">Log out</a></div>
+			</div>
+		</div>
+	</header>
+	<main>
+		<div class="container">
+			<div class="form">
+				<div class="header">Send a Push</div>
+				<div class="body">
+					<% if (!!locals.error) { %>
+					<div class="alert-error">
+						<%= locals.error %>
+					</div>
+					<% } %>
+					<% if (!!locals.success) { %>
+					<div class="alert-success">
+						<%= locals.success %>
+					</div>
+					<% } %>
+					<form method="post" action="/push">
+						<div class="field">
+							<label for="message">Message</label>
+							<textarea id="message" name="message"></textarea>
+						</div>
+						<div class="field">
+							<label for="url">URL (optional)</label>
+							<textarea id="url" name="url"></textarea>
+						</div>
+						<button type="submit" class="button">Send</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<h2>Guidelines</h2>
+			<p>
+				HoloNet currently supports two kinds of Push notifications - Dulfy and regular. All notifications require a Message text and they will be displayed like this when users are currently not using the app.
+			</p>
+			<img class="auto-wide" style="max-width:747px" src="/images/push1.png"/>
+			<p>
+				If a notification is sent <b>without entering anything into the URL field</b> it is treated as a regular notification. Users currently using the app will see a dismissable Message popup.
+			</p>
+			<img class="auto-wide" style="max-width:749px" src="/images/push2.png"/>
+			<p>
+				If a notification is sent <b>with URL</b> it is treated as a Dulfy notification. Users currently using the app will see a Message popup with two options - Hide will dismiss the popup, View will switch to the Dulfy tab and load the sent URL. URL should be fully specified:
+				<p>http://www.google.com - good</p>
+				<p>www.google.com - bad</p>
+				<p>google.com - bad</p>
+			</p>
+			<img class="auto-wide" style="max-width:750px" src="/images/push3.png"/>
+		</div>
+	</main>
+  </body>
+</html>
