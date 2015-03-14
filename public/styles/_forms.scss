@@ -1,0 +1,88 @@
+.alert {
+	margin-bottom: 20px;
+	padding: 15px;
+	border: 1px solid transparent;
+	@include border-radius(4px);
+}
+
+.alert-error {
+	@extend .alert;
+	color: #a94442;
+	background-color: #f2dede;
+	border-color: #ebccd1;
+}
+
+.alert-success {
+	@extend .alert;
+	color: #3c763d;
+	background-color: #dff0d8;
+	border-color: #d6e9c6;
+}
+
+.form {
+	margin: 0 auto;
+	border: 1px solid $contentHighlightBackground;
+	@include border-radius(10px);
+	overflow: hidden;
+
+	.header {
+		position: relative;
+		color: $contentTitle;
+		background-color: $contentHighlightBackground;
+		border: 0;
+		padding: 0;
+		height: 45px;
+		line-height: 45px;
+	}
+
+	.body {
+		text-align: center;
+		margin: 20px;
+
+		.field {
+			margin-bottom: 0 15px 12px 15px;
+
+			label {
+				display: block;
+				text-align: left;
+				margin: 5px 0;
+			}
+
+			.text-input {
+				width: 100%;
+				font-size: 15px;
+				border: 1px solid $contentHighlightBackground;
+				outline: 0;
+			}
+
+			input {
+				@extend .text-input;
+				height: 25px;
+			}
+
+			textarea {
+				@extend .text-input;
+				height: 50px;
+			}
+		}
+
+		.button {
+			width: 100px;
+			height: 30px;
+			margin-top: 20px;
+			font-size: 15px;
+			font-weight: 500;
+			border: 0;
+			background-color: white;
+			text-decoration: none;
+			outline: 0;
+			cursor: pointer;
+		}
+	}
+}
+
+@media (min-width: 410px) {
+	.form {
+		width: 350px;
+	}
+}
